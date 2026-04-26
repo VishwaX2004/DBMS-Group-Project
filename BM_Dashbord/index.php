@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <div class="logo-box">
@@ -80,16 +79,15 @@
 
     <div class="sidebar-bottom">
       <div class="user-card">
-        <div class="user-avatar">KP</div>
+        <div class="user-avatar">TT</div>
         <div>
-          <div class="user-name">Kumara Perera</div>
+          <div class="user-name">Thisaru Thiwanka</div>
           <div class="user-role">Branch Manager</div>
         </div>
       </div>
     </div>
   </aside>
 
-  <!-- MAIN -->
   <div class="main">
 
     <div class="topbar">
@@ -110,7 +108,6 @@
 
     <div class="content">
 
-      <!-- STAT CARDS -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-icon" style="background:#eff6ff;">📦</div>
@@ -128,7 +125,7 @@
           <div class="stat-icon" style="background:#fee2e2;">⚠️</div>
           <div class="stat-label">Damaged Items</div>
           <div class="stat-value">5</div>
-          <div class="stat-change down">↑ 2 new reported</div>
+          <div class="stat-change up">↑ 2 new reported</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon" style="background:#dcfce7;">🧾</div>
@@ -138,160 +135,8 @@
         </div>
       </div>
 
-      <!-- MODULE CARDS -->
       <div class="section-title">System Modules</div>
-      <div class="modules-grid">
 
-        <!-- 2.1 Inventory -->
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-title-row">
-              <div class="module-icon" style="background:#eff6ff;">📦</div>
-              <div>
-                <div class="module-name">2.1 Inventory Management</div>
-                <div class="module-desc">Filtered by Manager's Branch ID</div>
-              </div>
-            </div>
-            <div class="module-meta">
-              <span class="page-badge">PAGE</span>
-              <div class="module-arrow">→</div>
-            </div>
-          </div>
-          <div class="crud-badges">
-            <span class="badge badge-create">CREATE</span>
-            <span class="badge badge-read">READ</span>
-            <span class="badge badge-update">UPDATE</span>
-            <span class="badge badge-delete">DELETE</span>
-          </div>
-          <ul class="module-bullet-list">
-            <li>Add initial stock levels for new items</li>
-            <li>View current stock quantities &amp; low-stock alerts</li>
-            <li>Manually adjust stock after physical audit</li>
-            <li>Remove discontinued items from records</li>
-          </ul>
-          <div class="db-label">Database Table</div>
-          <div class="db-table">Inventory (filtered by branch_id)</div>
-        </div>
-
-        <!-- 2.2 Stock Request -->
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-title-row">
-              <div class="module-icon" style="background:#fef9c3;">🛒</div>
-              <div>
-                <div class="module-name">2.2 Stock Request (Sales)</div>
-                <div class="module-desc">Request replenishment from Head Office</div>
-              </div>
-            </div>
-            <div class="module-meta">
-              <span class="page-badge">PAGE</span>
-              <div class="module-arrow">→</div>
-            </div>
-          </div>
-          <div class="crud-badges">
-            <span class="badge badge-create">CREATE</span>
-            <span class="badge badge-read">READ</span>
-          </div>
-          <ul class="module-bullet-list">
-            <li>Create &amp; send replenishment requests to HO</li>
-            <li>Track status of pending and approved requests</li>
-          </ul>
-          <div class="db-label">Database Table</div>
-          <div class="db-table">Sales Order (Sale_ID, Requested_By, Product_ID, Qty, Status)</div>
-        </div>
-
-        <!-- 2.3 Inter-Branch Transfer -->
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-title-row">
-              <div class="module-icon" style="background:#f0fdf4;">🔄</div>
-              <div>
-                <div class="module-name">2.3 Inter-Branch Transfer</div>
-                <div class="module-desc">Move stock between branch locations</div>
-              </div>
-            </div>
-            <div class="module-meta">
-              <span class="page-badge">PAGE</span>
-              <div class="module-arrow">→</div>
-            </div>
-          </div>
-          <div class="crud-badges">
-            <span class="badge badge-create">CREATE</span>
-            <span class="badge badge-read">READ</span>
-            <span class="badge badge-update">UPDATE</span>
-          </div>
-          <ul class="module-bullet-list">
-            <li>Create transfer orders between branches</li>
-            <li>Monitor status (Pending → In Transfer → Received)</li>
-            <li>Inventory auto-adjusted at both branches</li>
-          </ul>
-          <div class="db-label">Database Table</div>
-          <div class="db-table">Inter_Branch_Transfer (Transfer_ID, Source, Dest, Product_ID, Qty, Status)</div>
-        </div>
-
-        <!-- 2.4 Damaged Items -->
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-title-row">
-              <div class="module-icon" style="background:#fff1f2;">⚠️</div>
-              <div>
-                <div class="module-name">2.4 Damaged Items</div>
-                <div class="module-desc">Log &amp; flag items for return / write-off</div>
-              </div>
-            </div>
-            <div class="module-meta">
-              <span class="page-badge">PAGE</span>
-              <div class="module-arrow">→</div>
-            </div>
-          </div>
-          <div class="crud-badges">
-            <span class="badge badge-create">CREATE</span>
-            <span class="badge badge-read">READ</span>
-          </div>
-          <ul class="module-bullet-list">
-            <li>Log damaged items found during operations</li>
-            <li>Each log deducts from the branch inventory count</li>
-            <li>Flagged for supplier return or write-off review</li>
-          </ul>
-          <div class="db-label">Database Table</div>
-          <div class="db-table">Damaged_Items (Damage_ID, Branch_ID, Product_ID, Qty, Reason, Date)</div>
-        </div>
-
-        <!-- 2.5 Purchase Order -->
-        <div class="module-card full-width">
-          <div class="module-header">
-            <div class="module-title-row">
-              <div class="module-icon" style="background:#f0fdf4;">🧾</div>
-              <div>
-                <div class="module-name">2.5 Purchase Order</div>
-                <div class="module-desc">Raise POs and send directly to approved suppliers</div>
-              </div>
-            </div>
-            <div class="module-meta">
-              <span class="page-badge">PAGE</span>
-              <div class="module-arrow">→</div>
-            </div>
-          </div>
-          <div class="crud-badges">
-            <span class="badge badge-create">CREATE</span>
-            <span class="badge badge-read">READ</span>
-            <span class="badge badge-update">UPDATE</span>
-          </div>
-          <ul class="module-bullet-list two-col">
-            <li>Raise purchase orders &amp; send to approved suppliers</li>
-            <li>Track lifecycle: Pending → Approved → Received</li>
-            <li>Received orders auto-update branch inventory</li>
-          </ul>
-          <div class="db-label">Database Tables</div>
-          <div class="db-table">
-            Purchase_Orders (PO_ID, Supplier_ID, Branch_ID, Status, Date) ·
-            Purchase_Order_Items (Item_ID, PO_ID, Product_ID, Qty, Unit_Price)
-          </div>
-        </div>
-
-      </div>
-
-      <!-- RECENT ACTIVITY -->
       <div class="section-title">Recent Activity</div>
       <div class="activity-card">
         <div class="activity-row">
@@ -329,12 +174,7 @@
     </div>
   </div>
 
-  <script>
-    function setActive(el) {
-      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-      el.classList.add('active');
-    }
-  </script>
+ 
 
 </body>
 </html>
