@@ -55,10 +55,9 @@ CREATE TABLE `course_unit` (
   `Semester_No` int(11) DEFAULT NULL,
   `Course_Type` varchar(20) DEFAULT NULL,
   `Level` int(11) DEFAULT NULL,
-  `Lecture_ID` int(11) DEFAULT NULL,
+  `Lecture_ID` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Course_Code`),
-  KEY `Lecture_ID` (`Lecture_ID`),
-  CONSTRAINT `course_unit_ibfk_1` FOREIGN KEY (`Lecture_ID`) REFERENCES `lecturer` (`Lecture_ID`)
+  KEY `Lecture_ID` (`Lecture_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,7 +78,7 @@ DROP TABLE IF EXISTS `lecturer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lecturer` (
-  `Lecture_ID` int(11) NOT NULL,
+  `Lecture_ID` varchar(50) NOT NULL,
   `Full_Name` varchar(100) DEFAULT NULL,
   `Specialization_Area` varchar(100) DEFAULT NULL,
   `Contact_No` varchar(15) DEFAULT NULL,
@@ -107,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-03 11:56:22
+-- Dump completed on 2026-05-03 15:28:20
