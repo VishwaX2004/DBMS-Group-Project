@@ -16,6 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `Admin_ID` varchar(10) NOT NULL,
+  `User_ID` varchar(10) NOT NULL,
+  `First_Name` varchar(30) NOT NULL,
+  `Last_Name` varchar(30) NOT NULL,
+  `Contact_no` varchar(15) DEFAULT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Joined_Date` date DEFAULT NULL,
+  PRIMARY KEY (`Admin_ID`),
+  UNIQUE KEY `Email` (`Email`),
+  KEY `User_ID` (`User_ID`),
+  CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `attendance`
 --
 
@@ -43,6 +74,37 @@ CREATE TABLE `attendance` (
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dean`
+--
+
+DROP TABLE IF EXISTS `dean`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dean` (
+  `Dean_ID` varchar(10) NOT NULL,
+  `User_ID` varchar(10) NOT NULL,
+  `Full_Name` varchar(100) NOT NULL,
+  `DOB` date DEFAULT NULL,
+  `Appointed_Date` date DEFAULT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Contact_No` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`Dean_ID`),
+  UNIQUE KEY `Email` (`Email`),
+  KEY `User_ID` (`User_ID`),
+  CONSTRAINT `dean_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dean`
+--
+
+LOCK TABLES `dean` WRITE;
+/*!40000 ALTER TABLE `dean` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dean` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -80,7 +142,6 @@ CREATE TABLE `marks` (
 
 LOCK TABLES `marks` WRITE;
 /*!40000 ALTER TABLE `marks` DISABLE KEYS */;
-INSERT INTO `marks` VALUES ('M001','TG2077','ICT1222',85.00,90.00,70.00,87.50,80.00,95.00,95.00,24.13,75.00,82.00,81.53,'Normal');
 /*!40000 ALTER TABLE `marks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,8 +173,36 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES ('TG2077','U001','D01','Vishwa Pramuditha',0.00,0.00,'vishwa@example.com','0771234567','Proper');
+INSERT INTO `student` VALUES ('TG2070','S001','D01','Vishwa Pramuditha',0.00,0.00,'stu01@mail.com','0750000201','Proper'),('TG2071','S002','D01','Kasun Kalhara',0.00,0.00,'stu02@mail.com','0750000202','Proper'),('TG2072','S003','D01','Nuwan Thilina',0.00,0.00,'stu03@mail.com','0750000203','Proper'),('TG2073','S004','D01','Tharindu Dilshan',0.00,0.00,'stu04@mail.com','0750000204','Proper'),('TG2074','S005','D01','Sachintha Madushan',0.00,0.00,'stu05@mail.com','0750000205','Proper'),('TG2075','S006','D01','Ishara Sandaruwan',0.00,0.00,'stu06@mail.com','0750000206','Proper'),('TG2076','S007','D01','Kavindi Shehara',0.00,0.00,'stu07@mail.com','0750000207','Proper'),('TG2077','S008','D01','Piumi Hansika',0.00,0.00,'stu08@mail.com','0750000208','Proper'),('TG2078','S009','D01','Lahiru Kumara',0.00,0.00,'stu09@mail.com','0750000209','Proper'),('TG2079','S010','D01','Dinesh Priyantha',0.00,0.00,'stu10@mail.com','0750000210','Proper'),('TG2080','S011','D01','Sahan Perera',0.00,0.00,'stu11@mail.com','0750000211','Repeat'),('TG2081','S012','D01','Amila Sandeepa',0.00,0.00,'stu12@mail.com','0750000212','Repeat'),('TG2082','S013','D01','Ruwan Chamara',0.00,0.00,'stu13@mail.com','0750000213','Repeat'),('TG2083','S014','D01','Nilupul Prasanna',0.00,0.00,'stu14@mail.com','0750000214','Repeat'),('TG2084','S015','D01','Supun Silva',0.00,0.00,'stu15@mail.com','0750000215','Repeat');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `User_ID` varchar(10) NOT NULL,
+  `User_Name` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Contact_no` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`User_ID`),
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('A001','admin','12345','admin@ruhuna.ac.lk','0112222333'),('D001','dean','12345','dean@ruhuna.ac.lk','0114444555'),('L001','lecturer','12345','lec1@mail.com','0770000101'),('L002','lecturer','12345','lec2@mail.com','0770000102'),('L003','lecturer','12345','lec3@mail.com','0770000103'),('L004','lecturer','12345','lec4@mail.com','0770000104'),('L005','lecturer','12345','lec5@mail.com','0770000105'),('S001','student','12345','stu01@mail.com','0750000201'),('S002','student','12345','stu02@mail.com','0750000202'),('S003','student','12345','stu03@mail.com','0750000203'),('S004','student','12345','stu04@mail.com','0750000204'),('S005','student','12345','stu05@mail.com','0750000205'),('S006','student','12345','stu06@mail.com','0750000206'),('S007','student','12345','stu07@mail.com','0750000207'),('S008','student','12345','stu08@mail.com','0750000208'),('S009','student','12345','stu09@mail.com','0750000209'),('S010','student','12345','stu10@mail.com','0750000210'),('S011','student','12345','stu11@mail.com','0750000211'),('S012','student','12345','stu12@mail.com','0750000212'),('S013','student','12345','stu13@mail.com','0750000213'),('S014','student','12345','stu14@mail.com','0750000214'),('S015','student','12345','stu15@mail.com','0750000215'),('T001','Technical_officer','12345','to1@mail.com','0710000001'),('T002','Technical_officer','12345','to2@mail.com','0710000002'),('T003','Technical_officer','12345','to3@mail.com','0710000003');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -142,10 +231,107 @@ DELIMITER ;;
     IN end_exam DECIMAL(5,2)
 )
 BEGIN
-    INSERT INTO Marks (Mark_ID, Reg_No, Course_Code, Quiz1_Marks, Quiz2_Marks, Quiz3_Marks, Assignment_1, Assignment_2, Mid_Exam_Marks, End_Exam_Marks)
-    VALUES (in_id, in_reg, in_course, q1, q2, q3, a1, a2, mid, end_exam);
+    DECLARE is_eligible VARCHAR(20);
 
-    CALL UpdateFinalMarks(in_reg, in_course);
+    SELECT Eligibility INTO is_eligible 
+    FROM Attendance 
+    WHERE Reg_No = in_reg 
+    ORDER BY Attendance_ID DESC LIMIT 1;
+
+    IF is_eligible = 'Eligible' THEN
+        INSERT INTO Marks (Mark_ID, Reg_No, Course_Code, Quiz1_Marks, Quiz2_Marks, Quiz3_Marks, Assignment_1, Assignment_2, Mid_Exam_Marks, End_Exam_Marks)
+        VALUES (in_id, in_reg, in_course, q1, q2, q3, a1, a2, mid, end_exam);
+
+        CALL UpdateFinalMarks(in_reg, in_course);
+    ELSE
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Denied: Student is Not Eligible due to low attendance (UGC By-laws).';
+    END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CheckEligibility` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = latin1 */ ;
+/*!50003 SET character_set_results = latin1 */ ;
+/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `CheckEligibility`(
+    IN in_reg VARCHAR(10)
+)
+BEGIN
+    DECLARE total_sessions INT DEFAULT 15;
+    DECLARE attended_sessions INT;
+    DECLARE percentage DECIMAL(5,2);
+
+    SELECT COUNT(*) INTO attended_sessions 
+    FROM Attendance 
+    WHERE Reg_No = in_reg AND Attendance_Status = 'Present';
+
+    SET percentage = (attended_sessions / total_sessions) * 100;
+
+    IF percentage >= 80 THEN
+        UPDATE Attendance SET Eligibility = 'Eligible' WHERE Reg_No = in_reg;
+    ELSE
+        UPDATE Attendance SET Eligibility = 'Not Eligible' WHERE Reg_No = in_reg;
+    END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GenerateAcademicSummary` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = latin1 */ ;
+/*!50003 SET character_set_results = latin1 */ ;
+/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `GenerateAcademicSummary`()
+BEGIN
+    SET FOREIGN_KEY_CHECKS = 0;
+    
+    TRUNCATE TABLE Academic_Summery;
+
+    INSERT INTO Academic_Summery (
+        Summery_ID, 
+        CGPA_Value, 
+        Academic_Level, 
+        Last_Update_Date, 
+        Class_Standings, 
+        Total_Credit_Earned, 
+        Reg_No
+    )
+    SELECT 
+        CONCAT('SUM_', Reg_No),
+        ROUND(SUM(Semester_GPA_Value * Total_Semester_Credit) / SUM(Total_Semester_Credit), 2),
+        1,
+        CURDATE(),
+        
+        CASE 
+            WHEN (SUM(Semester_GPA_Value * Total_Semester_Credit) / SUM(Total_Semester_Credit)) >= 3.70 THEN 'First Class'
+            WHEN (SUM(Semester_GPA_Value * Total_Semester_Credit) / SUM(Total_Semester_Credit)) >= 3.30 THEN 'Second Upper'
+            WHEN (SUM(Semester_GPA_Value * Total_Semester_Credit) / SUM(Total_Semester_Credit)) >= 3.00 THEN 'Second Lower'
+            WHEN (SUM(Semester_GPA_Value * Total_Semester_Credit) / SUM(Total_Semester_Credit)) >= 2.00 THEN 'Pass'
+            ELSE 'Fail'
+        END,
+        SUM(Total_Semester_Credit),
+        Reg_No
+    FROM Semester_GPA
+    GROUP BY Reg_No;
+
+    SET FOREIGN_KEY_CHECKS = 1;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -228,4 +414,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-04 18:32:49
+-- Dump completed on 2026-05-05 17:56:18
