@@ -151,7 +151,7 @@ CREATE TABLE `tables_priv` (
 
 LOCK TABLES `tables_priv` WRITE;
 /*!40000 ALTER TABLE `tables_priv` DISABLE KEYS */;
-INSERT INTO `tables_priv` VALUES ('localhost','university_db','Student','attendance','root@localhost','2026-05-04 11:56:18','Select',''),('localhost','university_db','Student','marks','root@localhost','2026-05-04 11:56:33','Select',''),('localhost','university_db','Tecnical_Officer','attendance','root@localhost','2026-05-04 12:02:14','Select,Insert,Update','');
+INSERT INTO `tables_priv` VALUES ('localhost','university_db','Student','attendance','root@localhost','2026-05-04 11:56:18','Select',''),('localhost','university_db','Student','marks','root@localhost','2026-05-04 11:56:33','Select',''),('localhost','university_db','Tecnical_Officer','attendance','root@localhost','2026-05-04 12:02:14','Select,Insert,Update',''),('localhost','university_db','Student','student_course_grade','root@localhost','2026-05-05 13:44:42','Select',''),('localhost','university_db','Student','academic_summery','root@localhost','2026-05-05 13:44:12','Select','');
 /*!40000 ALTER TABLE `tables_priv` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,4 +222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-04 18:41:20
+-- Dump completed on 2026-05-05 19:17:05
